@@ -9,6 +9,9 @@ package edu.udec.figurasgeometricas;
  *
  * @author ANDERSON
  */
-public class NewClass {
-    
+public class Main {
+    public static void main(String[] args) {
+        Inicio menu = new Inicio();
+        menu.iniciar();
+    }
 }
