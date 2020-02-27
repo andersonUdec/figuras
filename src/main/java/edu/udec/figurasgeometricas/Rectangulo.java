@@ -9,7 +9,17 @@ package edu.udec.figurasgeometricas;
  *
  * @author ANDERSON
  */
-public class Cuadrado extends FigurasGeometricas{
+public class Rectangulo extends FigurasGeometricas{
+
+    public Rectangulo() {
+    }
+
+    public Rectangulo(double lado1, double lado2, double lado3, double lado4) {
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.lado3 = lado3;
+        this.lado4 = lado4;
+    }
 
     public int getCoordenadax1() {
         return coordenadax1;
@@ -118,18 +128,8 @@ public class Cuadrado extends FigurasGeometricas{
     private double lado2;
     private double lado3;
     private double lado4;
-
-    public Cuadrado(double lado1, double lado2, double lado3, double lado4) {
-        this.lado1 = lado1;
-        this.lado2 = lado2;
-        this.lado3 = lado3;
-        this.lado4 = lado4;
-    }
-
-    public Cuadrado() {
-    }
-
-    public Cuadrado(int coordenadax1, int coordenaday1, int coordenadax2, int coordenaday2, int coordenadax3, int coordenaday3, int coordenadax4, int coordenaday4) {
+    
+    public Rectangulo(int coordenadax1, int coordenaday1, int coordenadax2, int coordenaday2, int coordenadax3, int coordenaday3, int coordenadax4, int coordenaday4) {
         this.coordenadax1 = coordenadax1;
         this.coordenaday1 = coordenaday1;
         this.coordenadax2 = coordenadax2;
@@ -139,7 +139,7 @@ public class Cuadrado extends FigurasGeometricas{
         this.coordenadax4 = coordenadax4;
         this.coordenaday4 = coordenaday4;
     }
-
+    
     public double calcularLado1(){
         double auxiliarX = Math.pow(coordenadax2 - coordenadax1, 2);
         double auxiliarY = Math.pow(coordenaday2 - coordenaday1, 2);
@@ -174,7 +174,6 @@ public class Cuadrado extends FigurasGeometricas{
         this.lado4 = lado;
         return lado;
     }
-    
     @Override
     public void hallarArea() {
         super.setArea(lado1*lado2);
@@ -186,7 +185,7 @@ public class Cuadrado extends FigurasGeometricas{
     }
     @Override
     public void imprimirDatos(){
-       if(isCuadrado()) {
+       if(isRectangulo()) {
             System.out.println("Lado1: " + lado1);
             System.out.println("Lado2: " + lado2);
             System.out.println("Lado3: " + lado3);
@@ -194,10 +193,10 @@ public class Cuadrado extends FigurasGeometricas{
             System.out.println("Perimetro: " + super.getPerimetro());
             System.out.println("Area: " + super.getArea());
        } else {
-            System.out.println("No es un Cuadrado");
+            System.out.println("No es un Rectangulo");
        }
     }
-    private boolean isCuadrado() {
+    private boolean isRectangulo() {
         return !(coordenadax1 == coordenadax2 && coordenaday1 == coordenaday2);
     }
 }

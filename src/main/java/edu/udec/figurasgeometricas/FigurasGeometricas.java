@@ -36,5 +36,14 @@ public class FigurasGeometricas {
     public void hallarPerimetro(){
         
     }
+    public void imprimirDatos(){
+        
+    }
+    public void graficar(){
+    
+    }
+    public void pintar(){
+        
+    }
     
 }
