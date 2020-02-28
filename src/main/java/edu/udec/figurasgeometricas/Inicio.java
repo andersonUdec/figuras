@@ -5,10 +5,12 @@
  */
 package edu.udec.figurasgeometricas;
 
+import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.util.Scanner;
 
 /**
- *
+ *Esta clase sera la encargada de determinar que figura quiere el usuario, capturar las coordenadas y crear los objetos
  * @author Anderson Suarez y Albert Charry
  */
 public class Inicio {
@@ -16,17 +18,27 @@ public class Inicio {
     private Rectangulo rectangulo;
     private Scanner teclado;
     private FigurasGeometricas figuras;
-    
+    private Triangulo triangulo;
+    /**
+     * Este metodo se encargar de iniciar cada uno de los hijos del programa o librerias necesarias
+     * @return no retorna nada
+     * @param no recibe ningun parametro
+     */
     public Inicio() {
         teclado = new Scanner(System.in); 
         cuadrado = new Cuadrado();
         rectangulo = new Rectangulo();
         figuras = new FigurasGeometricas();
+        triangulo = new Triangulo();
         iniciar();
     }
     
-    
-    
+    /**
+     * Este metodo es el donde el programa le dara la opcion al usuario de seleccionar la figura deseada y dependiendo de su opcion
+     * iniciara un metodo diferente.
+     * @return no retorna nada
+     * @param no recibe ningun parametro
+     */    
      public void iniciar() {        
         while(true) {
             System.out.println("1. Triangulo 2.Cuadrado 3.Rectangulo 4.Salir");
@@ -45,11 +57,58 @@ public class Inicio {
             
         }
     }
-     
+     /**
+     * Este metodo seiniciara si el usuario selecciono el numero 1.
+     * Este metodo se encarga de recibir por teclado cada una de las coordenadas para la figura.
+     * Tambien llama a cada uno de los metodos de la clase triangulo que son necesarios.
+     * @return no retorna nada
+     * @param no recibe ningun parametro
+     */ 
     private void iniciarTriangulo(){
+        int coordenadax1;
+        int coordenaday1;
+        int coordenadax2;
+        int coordenaday2;
+        int coordenadax3;
+        int coordenaday3;
+        double lado1;
+        double lado2;
+        double lado3;
+        double perimetro;
+        double area;
+        System.out.println("Digite x1 de la coordenada 1");
+        coordenadax1 = teclado.nextInt();
+        System.out.println("Digite y1 de la coordenada 1");
+        coordenaday1 = teclado.nextInt();
+        System.out.println("Digite x2 de la coordenada 2");
+        coordenadax2 = teclado.nextInt();
+        System.out.println("Digite y2 de la coordenada 2");
+        coordenaday2 = teclado.nextInt();
+        System.out.println("Digite x3 de la coordenada 3");
+        coordenadax3 = teclado.nextInt();
+        System.out.println("Digite y3 de la coordenada 3");
+        coordenaday3 = teclado.nextInt();
+        triangulo = new Triangulo(coordenadax1, coordenaday1,coordenadax2,coordenaday2 , coordenadax3, coordenaday3);
+        lado1 = triangulo.darLado1();
+        lado2 = triangulo.darLado2();
+        lado3 = triangulo.darLado3();
         
+        triangulo.hallarPerimetro();
+        perimetro = figuras.getPerimetro();
+        
+        triangulo.hallarArea();
+        area = figuras.getArea();
+        
+        Triangulo triangulo2 = new Triangulo(lado1, lado2, lado3);
+        triangulo.imprimirDatos();
     }
-     
+     /**
+     * Este metodo seiniciara si el usuario selecciono el numero 2.
+     * Este metodo se encarga de recibir por teclado cada una de las coordenadas para la figura.
+     * Tambien llama a cada uno de los metodos de la clase cuadrado que son necesarios.
+     * @return no retorna nada
+     * @param no recibe ningun parametro
+     */ 
     private void iniciarCuadrado(){
         int coordenadax1;
         int coordenaday1;
@@ -97,8 +156,17 @@ public class Inicio {
         Cuadrado cuadrado2 = new Cuadrado(lado1, lado2, lado3, lado4);
         
         cuadrado.imprimirDatos();
+        cuadrado.crearVentana();
+        cuadrado.graficar();
+
     }
-     
+     /**
+     * Este metodo seiniciara si el usuario selecciono el numero 3.
+     * Este metodo se encarga de recibir por teclado cada una de las coordenadas para la figura.
+     * Tambien llama a cada uno de los metodos de la clase rectangulo que son necesarios.
+     * @return no retorna nada
+     * @param no recibe ningun parametro
+     */ 
     private void iniciarRectangulo(){
         int coordenadax1;
         int coordenaday1;

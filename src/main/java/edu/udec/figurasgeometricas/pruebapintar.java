@@ -38,7 +38,6 @@ public class pruebapintar extends JFrame {
         contentPane.setLayout(null);
         setBounds(0,0,800,600);
     }
-    
     public void paint (Graphics g)
     {
         super.paint(g);

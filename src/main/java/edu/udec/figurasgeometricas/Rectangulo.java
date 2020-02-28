@@ -6,21 +6,32 @@
 package edu.udec.figurasgeometricas;
 
 /**
- *
- * @author ANDERSON
+ *Clase que representa un Rectangulo con sus operaciones
+ * @author Anderson Suarez y Albert Charry
  */
 public class Rectangulo extends FigurasGeometricas{
-
+    /**
+     * Constructor vacio
+     */
     public Rectangulo() {
     }
-
+    /**
+     * Constructor donde recibira cada una de los lados necesarios
+     * @param lado1
+     * @param lado2
+     * @param lado3
+     * @param lado4 
+     */
     public Rectangulo(double lado1, double lado2, double lado3, double lado4) {
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.lado3 = lado3;
         this.lado4 = lado4;
     }
-
+    /**
+     * Iniciar los gets y los sets de las variables de la clase
+     * @return 
+     */
     public int getCoordenadax1() {
         return coordenadax1;
     }
@@ -116,6 +127,12 @@ public class Rectangulo extends FigurasGeometricas{
     public void setLado4(double lado4) {
         this.lado4 = lado4;
     }
+     /**
+     * Finalizan los get y sets de las variables
+     */
+    /**
+     * Se crean las variables propias de la clase
+     */
     private int coordenadax1;
     private int coordenaday1;
     private int coordenadax2;
@@ -128,7 +145,17 @@ public class Rectangulo extends FigurasGeometricas{
     private double lado2;
     private double lado3;
     private double lado4;
-    
+    /**
+     * Constructor donde recibira cada una de las coordenadas necesarias
+     * @param coordenadax1
+     * @param coordenaday1
+     * @param coordenadax2
+     * @param coordenaday2
+     * @param coordenadax3
+     * @param coordenaday3
+     * @param coordenadax4
+     * @param coordenaday4 
+     */
     public Rectangulo(int coordenadax1, int coordenaday1, int coordenadax2, int coordenaday2, int coordenadax3, int coordenaday3, int coordenadax4, int coordenaday4) {
         this.coordenadax1 = coordenadax1;
         this.coordenaday1 = coordenaday1;
@@ -139,7 +166,10 @@ public class Rectangulo extends FigurasGeometricas{
         this.coordenadax4 = coordenadax4;
         this.coordenaday4 = coordenaday4;
     }
-    
+    /**
+     * calcula y retorna longitud de lado AB
+     * @return lado1
+     */
     public double calcularLado1(){
         double auxiliarX = Math.pow(coordenadax2 - coordenadax1, 2);
         double auxiliarY = Math.pow(coordenaday2 - coordenaday1, 2);
@@ -148,6 +178,10 @@ public class Rectangulo extends FigurasGeometricas{
         this.lado1 = lado;
         return lado;
     }
+    /**
+     * Calcula y retorna longitud de lado BC
+     * @return lado2
+     */
     public double calcularLado2(){
         double auxiliarX = Math.pow(coordenadax3 - coordenadax2, 2);
         double auxiliarY = Math.pow(coordenaday3 - coordenaday2, 2);
@@ -156,16 +190,22 @@ public class Rectangulo extends FigurasGeometricas{
         this.lado2 = lado;
         return lado;
     }
-
+    /**
+     * calcula y retorma longitud de lado CD
+     * @return lado3
+     */
     public double calcularLado3(){
         double auxiliarX = Math.pow(coordenadax4 - coordenadax3, 2);
-        double auxiliarY = Math.pow(coordenaday3 - coordenadax3, 2);
+        double auxiliarY = Math.pow(coordenaday4 - coordenadax3, 2);
         
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
         this.lado3 = lado;
         return lado;
     }
-
+    /**
+     * calcula y retorma longitud de lado DA
+     * @return lado4
+     */
     public double calcularLado4(){
         double auxiliarX = Math.pow(coordenadax4 - coordenadax1, 2);
         double auxiliarY = Math.pow(coordenaday4 - coordenaday1, 2);
@@ -174,15 +214,27 @@ public class Rectangulo extends FigurasGeometricas{
         this.lado4 = lado;
         return lado;
     }
+     /**
+     * 
+     * Metodo que retorna el perimetro del rectangulo
+     * @return area
+     */
     @Override
     public void hallarArea() {
         super.setArea(lado1*lado2);
     }
-
+ /**
+     * 
+     * Metodo que retorna el perimetro del rectangulo
+     * @return Perimetro
+     */
     @Override
     public void hallarPerimetro() {
         super.setPerimetro(lado1 + lado2 + lado3 + lado4);               
     }
+    /**
+     * Metodo que da los resultados del rectangulo
+     */
     @Override
     public void imprimirDatos(){
        if(isRectangulo()) {
@@ -196,6 +248,10 @@ public class Rectangulo extends FigurasGeometricas{
             System.out.println("No es un Rectangulo");
        }
     }
+    /**
+     * Retorna verdadero si es un rectangulo Falso contrario
+     * @return true o false
+     */
     private boolean isRectangulo() {
         return !(coordenadax1 == coordenadax2 && coordenaday1 == coordenaday2);
     }

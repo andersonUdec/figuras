@@ -8,15 +8,18 @@ package edu.udec.figurasgeometricas;
 import java.awt.EventQueue;
 
 /**
- *
- * @author ANDERSON
+ *La clase por la que el programa va a iniciar
+ * @author  Anderson Suarez y Albert Charry
+ * @version 3.0
  */
 public class Main {
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Inicio menu = new Inicio();
         menu.iniciar();
-    }*/
-    public static void main(String[] args) {
+        
+        
+    }
+    /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -27,5 +30,5 @@ public class Main {
                 }
             }
         });
-    }
+    }*/
 }
