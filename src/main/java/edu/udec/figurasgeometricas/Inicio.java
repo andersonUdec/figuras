@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author Anderson Suarez y Albert Charry
  */
 public class Inicio {
+    FigurasGeometricas[] fg = new FigurasGeometricas[2];
     private Cuadrado cuadrado;
     private Rectangulo rectangulo;
     private Scanner teclado;
@@ -100,6 +101,12 @@ public class Inicio {
         
         Triangulo triangulo2 = new Triangulo(lado1, lado2, lado3);
         triangulo.imprimirDatos();
+        for (int i = 0; i < fg.length ; i++) {
+            if(fg[i] == null){
+                fg[i] = triangulo; 
+                break;
+            }
+        }
     }
      /**
      * Este metodo seiniciara si el usuario selecciono el numero 2.
@@ -156,7 +163,12 @@ public class Inicio {
         
         cuadrado.imprimirDatos();
 
-
+        for (int i = 0; i < fg.length ; i++) {
+            if(fg[i] == null){
+                fg[i] = cuadrado; 
+                break;
+            }
+        }
     }
      /**
      * Este metodo seiniciara si el usuario selecciono el numero 3.
@@ -212,5 +224,11 @@ public class Inicio {
         Rectangulo rectangulo2 = new Rectangulo(lado1, lado2, lado3, lado4);
         
         rectangulo.imprimirDatos();
+         for (int i = 0; i < fg.length ; i++) {
+            if(fg[i] == null){
+                fg[i] = rectangulo; 
+                break;
+            }
+        }
     }
 }
