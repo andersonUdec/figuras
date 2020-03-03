@@ -28,7 +28,6 @@ public class Inicio {
         teclado = new Scanner(System.in); 
         cuadrado = new Cuadrado();
         rectangulo = new Rectangulo();
-        figuras = new FigurasGeometricas();
         triangulo = new Triangulo();
         iniciar();
     }
@@ -94,10 +93,10 @@ public class Inicio {
         lado3 = triangulo.darLado3();
         
         triangulo.hallarPerimetro();
-        perimetro = figuras.getPerimetro();
+        perimetro = triangulo.getPerimetro();
         
         triangulo.hallarArea();
-        area = figuras.getArea();
+        area = triangulo.getArea();
         
         Triangulo triangulo2 = new Triangulo(lado1, lado2, lado3);
         triangulo.imprimirDatos();
@@ -142,22 +141,21 @@ public class Inicio {
         coordenaday4 = teclado.nextInt();
         cuadrado = new Cuadrado(coordenadax1,coordenaday1,coordenadax2,coordenaday2,coordenadax3,coordenaday3,coordenadax4,coordenaday4);
         
-        lado1 = cuadrado.calcularLado1();
-        lado2 = cuadrado.calcularLado2();
-        lado3 = cuadrado.calcularLado3();
-        lado4 = cuadrado.calcularLado4();
+        lado1 = cuadrado.darLado1();
+        lado2 = cuadrado.darLado2();
+        lado3 = cuadrado.darLado3();
+        lado4 = cuadrado.darLado4();
         
         cuadrado.hallarPerimetro();
-        perimetro = figuras.getPerimetro();
+        perimetro = cuadrado.getPerimetro();
         
         cuadrado.hallarArea();
-        area = figuras.getArea();
+        area = cuadrado.getArea();
         
         Cuadrado cuadrado2 = new Cuadrado(lado1, lado2, lado3, lado4);
         
         cuadrado.imprimirDatos();
-        cuadrado.crearVentana();
-        cuadrado.graficar();
+
 
     }
      /**
@@ -200,16 +198,16 @@ public class Inicio {
         coordenaday4 = teclado.nextInt();
         rectangulo = new Rectangulo(coordenadax1,coordenaday1,coordenadax2,coordenaday2,coordenadax3,coordenaday3,coordenadax4,coordenaday4);
         
-        lado1 = rectangulo.calcularLado1();
-        lado2 = rectangulo.calcularLado2();
-        lado3 = rectangulo.calcularLado3();
-        lado4 = rectangulo.calcularLado4();
+        lado1 = rectangulo.darLado1();
+        lado2 = rectangulo.darLado2();
+        lado3 = rectangulo.darLado3();
+        lado4 = rectangulo.darLado4();
         
         rectangulo.hallarPerimetro();
-        perimetro = figuras.getPerimetro();
+        perimetro = rectangulo.getPerimetro();
         
         rectangulo.hallarArea();
-        area = figuras.getArea();
+        area = rectangulo.getArea();
         
         Rectangulo rectangulo2 = new Rectangulo(lado1, lado2, lado3, lado4);
         

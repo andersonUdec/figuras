@@ -8,7 +8,7 @@ package edu.udec.figurasgeometricas;
  * Clase que representa un triangulo con sus operaciones
  * @author Anderson Suarez y Albert Charry
  */
-public class Triangulo  extends FigurasGeometricas {
+public class Triangulo  extends FigurasGeometricas implements IOperaciones{
     /**
      * Constructor donde recibira cada una de las coordenadas necesarias
      * @param coordenadax1
@@ -18,14 +18,15 @@ public class Triangulo  extends FigurasGeometricas {
      * @param coordenadax3
      * @param coordenaday3 
      */
-    public Triangulo(int coordenadax1, int coordenaday1, int coordenadax2, int coordenaday2, int coordenadax3, int coordenaday3) {
-        this.coordenadax1 = coordenadax1;
-        this.coordenaday1 = coordenaday1;
-        this.coordenadax2 = coordenadax2;
-        this.coordenaday2 = coordenaday2;
-        this.coordenadax3 = coordenadax3;
-        this.coordenaday3 = coordenaday3;
+    public Triangulo(int coordenadax1, int coordenaday1,int coordenadax2,int coordenaday2 ,int coordenadax3, int coordenaday3) {
+        super.setCoordenadax1(coordenadax1);
+        super.setCoordenaday1(coordenaday1);
+        super.setCoordenadax2(coordenadax2);
+        super.setCoordenaday2(coordenaday2);
+        super.setCoordenadax3(coordenadax3);
+        super.setCoordenaday3(coordenaday3);
     }
+
     /**
      * Constructor donde recibe cada uno de los lados 
      * @param lado1
@@ -33,9 +34,9 @@ public class Triangulo  extends FigurasGeometricas {
      * @param lado3 
      */
     public Triangulo(double lado1, double lado2, double lado3) {
-        this.lado1 = lado1;
-        this.lado2 = lado2;
-        this.lado3 = lado3;
+        super.setLado1(lado1);
+        super.setLado2(lado2);
+        super.setLado3(lado3);
     }
     /**
      * Constructor vacio
@@ -46,99 +47,17 @@ public class Triangulo  extends FigurasGeometricas {
      * Aqui comienzan los gets y los sets de las variables.
      * @return 
      */
-    public int getCoordenadax1() {
-        return coordenadax1;
-    }
-
-    public void setCoordenadax1(int coordenadax1) {
-        this.coordenadax1 = coordenadax1;
-    }
-
-    public int getCoordenaday1() {
-        return coordenaday1;
-    }
-
-    public void setCoordenaday1(int coordenaday1) {
-        this.coordenaday1 = coordenaday1;
-    }
-
-    public int getCoordenadax2() {
-        return coordenadax2;
-    }
-
-    public void setCoordenadax2(int coordenadax2) {
-        this.coordenadax2 = coordenadax2;
-    }
-
-    public int getCoordenaday2() {
-        return coordenaday2;
-    }
-
-    public void setCoordenaday2(int coordenaday2) {
-        this.coordenaday2 = coordenaday2;
-    }
-
-    public int getCoordenadax3() {
-        return coordenadax3;
-    }
-
-    public void setCoordenadax3(int coordenadax3) {
-        this.coordenadax3 = coordenadax3;
-    }
-
-    public int getCoordenaday3() {
-        return coordenaday3;
-    }
-
-    public void setCoordenaday3(int coordenaday3) {
-        this.coordenaday3 = coordenaday3;
-    }
-    /**
-     * Declaracion de las variables propias de la clase
-     */
-    private int coordenadax1;
-    private int coordenaday1;
-    private int coordenadax2;
-    private int coordenaday2;
-    private int coordenadax3;
-    private int coordenaday3;
-
-    public double getLado1() {
-        return lado1;
-    }
-
-    public void setLado1(double lado1) {
-        this.lado1 = lado1;
-    }
-
-    public double getLado2() {
-        return lado2;
-    }
-
-    public void setLado2(double lado2) {
-        this.lado2 = lado2;
-    }
-
-    public double getLado3() {
-        return lado3;
-    }
-
-    public void setLado3(double lado3) {
-        this.lado3 = lado3;
-    }
-    private double lado1;
-    private double lado2;
-    private double lado3;
     /**
      * Retorma longitud de lado AB
      * @return lado1
      */
-    public double darLado1(){
-        double auxiliarX = Math.pow((coordenadax2 - coordenadax1), 2);
-        double auxiliarY = Math.pow((coordenaday2 - coordenaday1), 2);
+    @Override
+    public  double darLado1(){
+        double auxiliarX = Math.pow((super.getCoordenadax2() - super.getCoordenadax1()), 2);
+        double auxiliarY = Math.pow((super.getCoordenaday2() - super.getCoordenaday1()), 2);
         
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
-        this.lado1 = lado;
+        super.setLado1(lado);
         return lado;
     }
     
@@ -146,12 +65,13 @@ public class Triangulo  extends FigurasGeometricas {
      * Retorma longitud de lado BC
      * @return lado2
      */
-    public double darLado2(){
-        double auxiliarX = Math.pow((coordenadax3 - coordenadax2), 2);
-        double auxiliarY = Math.pow((coordenaday3 - coordenaday2), 2);
+    @Override
+    public  double darLado2(){
+        double auxiliarX = Math.pow((super.getCoordenadax3() - super.getCoordenadax2()), 2);
+        double auxiliarY = Math.pow((super.getCoordenaday3() - super.getCoordenaday2()), 2);
         
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
-        this.lado2 = lado;
+        super.setLado2(lado);
         return lado;
     }
 
@@ -159,12 +79,13 @@ public class Triangulo  extends FigurasGeometricas {
      * Retorma longitud de lado CA
      * @return lado3
      */
-    public double darLado3(){
-        double auxiliarX = Math.pow((coordenadax3 - coordenadax1), 2) ;
-        double auxiliarY = Math.pow((coordenaday3 - coordenaday1), 2);
+    @Override
+    public  double darLado3(){
+        double auxiliarX = Math.pow((super.getCoordenadax3() - super.getCoordenadax1()), 2) ;
+        double auxiliarY = Math.pow((super.getCoordenaday3() - super.getCoordenaday1()), 2);
         
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
-        this.lado3 = lado;
+        super.setLado3(lado);
         return lado;
     }
     
@@ -172,11 +93,11 @@ public class Triangulo  extends FigurasGeometricas {
      * Metodo que da los resultados del triangulo
      */
     @Override
-    public void imprimirDatos() {
+    public  void imprimirDatos() {
         if(isTriangulo()) {
-            System.out.println("Lado1: " + lado1);
-            System.out.println("Lado2: " + lado2);
-            System.out.println("Lado3: " + lado3);
+            System.out.println("Lado1: " + super.getLado1());
+            System.out.println("Lado2: " + super.getLado1());
+            System.out.println("Lado3: " + super.getLado1());
             System.out.println("Perimetro: " + super.getPerimetro());
             System.out.println("Area: " + super.getArea());
         } else {
@@ -189,7 +110,7 @@ public class Triangulo  extends FigurasGeometricas {
      * @return true o false
      */
     private boolean isTriangulo() {
-        return !(coordenadax1 == coordenadax2 && coordenaday1 == coordenaday2 && coordenadax2 == coordenadax3 && coordenaday2 == coordenaday3 || (coordenadax1 == coordenadax2 && coordenadax2 == coordenadax3 && coordenaday1 == coordenaday1 && coordenaday2 == coordenaday3));
+        return !(super.getCoordenadax1() == super.getCoordenadax2() && super.getCoordenaday1() == super.getCoordenaday2()&& super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday2() == super.getCoordenaday3() || (super.getCoordenadax1()== super.getCoordenadax2() && super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday1() == super.getCoordenaday1() && super.getCoordenaday2() == super.getCoordenaday3()));
     }
     
         /**
@@ -198,18 +119,18 @@ public class Triangulo  extends FigurasGeometricas {
      * @return Perimetro
      */
     @Override
-    public void hallarPerimetro() {        
-        if(lado1 == lado2 && lado2 == lado3 && lado1 == lado3){
-            super.setPerimetro(lado1 + lado2 + lado3);
+    public  void hallarPerimetro() {        
+        if(super.getLado1() == super.getLado2() && super.getLado2() == super.getLado3() && super.getLado1() == super.getLado3()){
+            super.setPerimetro(super.getLado1() + super.getLado2() + super.getLado3());
             System.out.println("El triangulo es rectangulo");
-        }else if(lado1 == lado2 && lado1 == lado3 && lado2 == lado3){
-            super.setPerimetro (lado1 + lado2 + lado3);  
+        }else if(super.getLado1() == super.getLado2() && super.getLado1() == super.getLado3() && super.getLado2() == super.getLado3()){
+            super.setPerimetro (super.getLado1() + super.getLado2() + super.getLado3());  
             System.out.println("El triangulo es Equilatero");
-        }else if(lado1 != lado2 && lado1!= lado3 && lado2!= lado3){
-            super.setPerimetro (lado1 + lado2 + lado3);  
+        }else if(super.getLado1() != super.getLado2() && super.getLado1()!= super.getLado3() && super.getLado2()!= super.getLado3()){
+            super.setPerimetro (super.getLado1() + super.getLado2() + super.getLado3());  
             System.out.println("El triangulo es Escaleno");
         }else{ 
-            super.setPerimetro (lado1 + lado2 + lado3);  
+            super.setPerimetro (super.getLado1() + super.getLado2() + super.getLado3());  
             System.out.println("El triangulo es Isosceles");
         }
 
@@ -220,19 +141,19 @@ public class Triangulo  extends FigurasGeometricas {
      * @return  Area
      */
     @Override
-    public void hallarArea() {
-        if(lado1 == lado2 && lado2 != lado3 && lado1 != lado3){
-            super.setArea((lado1*lado2)/2);
-        }else if(lado1 == lado2 && lado2 == lado3 && lado2 == lado3){
-            super.setArea(((Math.sqrt((3)))/4)*(Math.pow(lado1,2)));
-        }else if(lado1 != lado2 && lado1 != lado3 && lado2 != lado3){                 
-            double semiperimetro = ((lado1 + lado2 + lado3)/2);
-            double lado11 = semiperimetro - lado1;
-            double lado21 = semiperimetro - lado2;
-            double lado31 = semiperimetro - lado3;   
+    public  void hallarArea() {
+        if(super.getLado1() == super.getLado2() && super.getLado2() != super.getLado3() && super.getLado1() != super.getLado3()){
+            super.setArea((super.getLado1()*super.getLado2())/2);
+        }else if(super.getLado1() == super.getLado2() && super.getLado2() == super.getLado3() && super.getLado2() == super.getLado3()){
+            super.setArea(((Math.sqrt((3)))/4)*(Math.pow(super.getLado1(),2)));
+        }else if(super.getLado1() != super.getLado2() && super.getLado1() != super.getLado3() && super.getLado2() != super.getLado3()){                 
+            double semiperimetro = ((super.getLado1() + super.getLado2() + super.getLado3())/2);
+            double lado11 = semiperimetro - super.getLado1();
+            double lado21 = semiperimetro - super.getLado2();
+            double lado31 = semiperimetro - super.getLado3();   
             super.setArea(Math.sqrt((semiperimetro*(lado11 * lado21 * lado31))));
         }else{
-            super.setArea(((lado1)*(Math.sqrt(((Math.pow(lado2,2)))-((Math.pow(lado1,2))/4))))/2);  
+            super.setArea(((super.getLado1())*(Math.sqrt(((Math.pow(super.getLado2(),2)))-((Math.pow(super.getLado1(),2))/4))))/2);  
         }
     }
 }
