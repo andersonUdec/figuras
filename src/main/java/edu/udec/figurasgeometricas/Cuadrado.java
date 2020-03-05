@@ -187,8 +187,8 @@ public class Cuadrado extends FigurasGeometricas implements IOperaciones{
      * Retorna verdadero si es un rectangulo Falso contrario
      * @return true o false
      */
-    private boolean isCuadrado() {
-        return !(super.getCoordenadax1() == super.getCoordenadax2() && super.getCoordenaday1() == super.getCoordenaday2());
+    public boolean isCuadrado() {
+        return (super.getLado1()!= super.getLado2()&& super.getLado1()!= super.getLado3()&& super.getLado1()!= lado4 && super.getLado2()!= super.getLado1()&& super.getLado2()!= super.getLado3()&& super.getLado2()!= lado4 && super.getLado3()!= super.getLado1() && super.getLado3()!= lado4 && lado4 != super.getLado1()&& lado4 != super.getLado2()&& lado4 != super.getLado3() && super.getLado1() ==0.0 && super.getLado2() == 0.0 && super.getLado3() == 0.0 && lado4 ==0.0);
     }
 
 }

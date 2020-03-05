@@ -14,12 +14,13 @@ import java.util.Scanner;
  * @author Anderson Suarez y Albert Charry
  */
 public class Inicio {
-    FigurasGeometricas[] fg = new FigurasGeometricas[2];
+    public FigurasGeometricas[] fg = new FigurasGeometricas[3];
     private Cuadrado cuadrado;
     private Rectangulo rectangulo;
     private Scanner teclado;
     private FigurasGeometricas figuras;
     private Triangulo triangulo;
+    private GraficarFiguras gfiguras;
     /**
      * Este metodo se encargar de iniciar cada uno de los hijos del programa o librerias necesarias
      * @return no retorna nada
@@ -30,8 +31,10 @@ public class Inicio {
         cuadrado = new Cuadrado();
         rectangulo = new Rectangulo();
         triangulo = new Triangulo();
+        gfiguras = new GraficarFiguras();
         iniciar();
     }
+    
     
     /**
      * Este metodo es el donde el programa le dara la opcion al usuario de seleccionar la figura deseada y dependiendo de su opcion
@@ -41,6 +44,7 @@ public class Inicio {
      */    
      public void iniciar() {        
         while(true) {
+            
             System.out.println("1. Triangulo 2.Cuadrado 3.Rectangulo 4.Salir");
             byte opcion =  teclado.nextByte();
             if(opcion == 1){
@@ -50,11 +54,13 @@ public class Inicio {
             } else if(opcion == 3) {
                 iniciarRectangulo();
             } else if(opcion == 4) {
+                gfiguras = new GraficarFiguras(fg);
+                gfiguras.setVisible(true);
                 break;
             } else {
                 System.out.println("Numero no valido");
             }
-            
+                        
         }
     }
      /**
@@ -103,11 +109,13 @@ public class Inicio {
         triangulo.imprimirDatos();
         for (int i = 0; i < fg.length ; i++) {
             if(fg[i] == null){
-                fg[i] = triangulo; 
+                fg[i] = triangulo;
+                triangulo.setFg(fg);
                 break;
             }
         }
     }
+    
      /**
      * Este metodo seiniciara si el usuario selecciono el numero 2.
      * Este metodo se encarga de recibir por teclado cada una de las coordenadas para la figura.
@@ -162,14 +170,17 @@ public class Inicio {
         Cuadrado cuadrado2 = new Cuadrado(lado1, lado2, lado3, lado4);
         
         cuadrado.imprimirDatos();
-
-        for (int i = 0; i < fg.length ; i++) {
+        if(cuadrado.isCuadrado()){
+            for (int i = 0; i < fg.length ; i++) {
             if(fg[i] == null){
                 fg[i] = cuadrado; 
+                cuadrado.setFg(fg);
                 break;
             }
         }
+        }        
     }
+
      /**
      * Este metodo seiniciara si el usuario selecciono el numero 3.
      * Este metodo se encarga de recibir por teclado cada una de las coordenadas para la figura.
@@ -226,7 +237,8 @@ public class Inicio {
         rectangulo.imprimirDatos();
          for (int i = 0; i < fg.length ; i++) {
             if(fg[i] == null){
-                fg[i] = rectangulo; 
+                fg[i] = rectangulo;
+                rectangulo.setFg(fg);
                 break;
             }
         }

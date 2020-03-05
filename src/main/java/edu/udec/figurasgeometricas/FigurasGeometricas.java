@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
  *Clase padre de cada una de las figuras geometricas
  * @author Anderson suarez y Albert charry
  */
-public abstract class FigurasGeometricas extends JFrame{
+public abstract class FigurasGeometricas extends JFrame implements IOperaciones{
     private JPanel contentPane;
 
     public int getCoordenadax1() {
@@ -77,8 +77,21 @@ public abstract class FigurasGeometricas extends JFrame{
     private double lado1;
     private double lado2;
     private double lado3; 
+
+    public void setFg(FigurasGeometricas[] fg) {
+        this.fg = fg;
+    }
+    public FigurasGeometricas[] getFg() {
+        this.fg = getFg();
+        return fg;
+    }
     private double area;
     private double perimetro;
+    private FigurasGeometricas fg[];
+
+    public FigurasGeometricas(FigurasGeometricas[] fg) {
+        this.fg = fg;
+    }
 
     public double getLado1() {
         return lado1;

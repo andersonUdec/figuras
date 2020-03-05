@@ -41,12 +41,29 @@ public class Rectangulo extends FigurasGeometricas implements IOperaciones{
     public void setLado4(double lado4) {
         this.lado4 = lado4;
     }
-     /**
+
+    public int getCoordenadax4() {
+        return coordenadax4;
+    }
+
+    public void setCoordenadax4(int coordenadax4) {
+        this.coordenadax4 = coordenadax4;
+    }
+
+    public int getCoordenaday4() {
+        return coordenaday4;
+    }
+
+    /**
      * Finalizan los get y sets de las variables
      */
     /**
      * Se crean las variables propias de la clase
      */
+    public void setCoordenaday4(int coordenaday4) {
+        this.coordenaday4 = coordenaday4;
+    }
+
     private int coordenadax4;
     private int coordenaday4;
 
@@ -115,7 +132,7 @@ public class Rectangulo extends FigurasGeometricas implements IOperaciones{
      * calcula y retorma longitud de lado DA
      * @return lado4
      */
-
+    
     public double darLado4(){
         double auxiliarX = Math.pow(coordenadax4 - super.getCoordenadax1(), 2);
         double auxiliarY = Math.pow(coordenaday4 - super.getCoordenaday1(), 2);

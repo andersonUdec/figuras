@@ -81,8 +81,8 @@ public class Triangulo  extends FigurasGeometricas implements IOperaciones{
      */
     @Override
     public  double darLado3(){
-        double auxiliarX = Math.pow((super.getCoordenadax3() - super.getCoordenadax1()), 2) ;
-        double auxiliarY = Math.pow((super.getCoordenaday3() - super.getCoordenaday1()), 2);
+        double auxiliarX = Math.pow((super.getCoordenadax1() - super.getCoordenadax3()), 2) ;
+        double auxiliarY = Math.pow((super.getCoordenaday1() - super.getCoordenaday3()), 2);
         
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
         super.setLado3(lado);
@@ -96,8 +96,8 @@ public class Triangulo  extends FigurasGeometricas implements IOperaciones{
     public  void imprimirDatos() {
         if(isTriangulo()) {
             System.out.println("Lado1: " + super.getLado1());
-            System.out.println("Lado2: " + super.getLado1());
-            System.out.println("Lado3: " + super.getLado1());
+            System.out.println("Lado2: " + super.getLado2());
+            System.out.println("Lado3: " + super.getLado3());
             System.out.println("Perimetro: " + super.getPerimetro());
             System.out.println("Area: " + super.getArea());
         } else {
@@ -110,7 +110,7 @@ public class Triangulo  extends FigurasGeometricas implements IOperaciones{
      * @return true o false
      */
     private boolean isTriangulo() {
-        return !(super.getCoordenadax1() == super.getCoordenadax2() && super.getCoordenaday1() == super.getCoordenaday2()&& super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday2() == super.getCoordenaday3() || (super.getCoordenadax1()== super.getCoordenadax2() && super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday1() == super.getCoordenaday1() && super.getCoordenaday2() == super.getCoordenaday3()));
+        return !(super.getCoordenadax1() == super.getCoordenadax2() && super.getCoordenaday1() == super.getCoordenaday2()&& super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday2() == super.getCoordenaday3() || (super.getCoordenadax1()== super.getCoordenadax2() && super.getCoordenadax2() == super.getCoordenadax3() && super.getCoordenaday1() == super.getCoordenaday2() && super.getCoordenaday2() == super.getCoordenaday3()));
     }
     
         /**
@@ -156,4 +156,5 @@ public class Triangulo  extends FigurasGeometricas implements IOperaciones{
             super.setArea(((super.getLado1())*(Math.sqrt(((Math.pow(super.getLado2(),2)))-((Math.pow(super.getLado1(),2))/4))))/2);  
         }
     }
+
 }

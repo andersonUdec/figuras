@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package edu.udec.figurasgeometricas;
-
 import java.awt.EventQueue;
 
 /**
@@ -15,9 +14,7 @@ import java.awt.EventQueue;
 public class Main {
     public static void main(String[] args) {
         Inicio menu = new Inicio();
-        menu.iniciar();
-        
-        
+        menu.iniciar();        
     }
     /*public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
