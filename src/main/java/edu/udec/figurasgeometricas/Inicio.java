@@ -45,7 +45,7 @@ public class Inicio {
      public void iniciar() {        
         while(true) {
             
-            System.out.println("1. Triangulo 2.Cuadrado 3.Rectangulo 4.Salir");
+            System.out.println("1. Triangulo 2.Cuadrado 3.Rectangulo 4.Graficar 5.Salir");
             byte opcion =  teclado.nextByte();
             if(opcion == 1){
                 iniciarTriangulo();
@@ -56,11 +56,12 @@ public class Inicio {
             } else if(opcion == 4) {
                 gfiguras = new GraficarFiguras(fg);
                 gfiguras.setVisible(true);
+                
+            } else if(opcion ==5) {
                 break;
-            } else {
+            }else{
                 System.out.println("Numero no valido");
-            }
-                        
+            }                
         }
     }
      /**

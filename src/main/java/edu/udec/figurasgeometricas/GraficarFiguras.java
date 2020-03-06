@@ -11,8 +11,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 /**
- *
- * @author charr
+ * clase que se encarga de graficar
+ * @author Anderson suarez y Albert charry
  */
 public class GraficarFiguras extends JFrame{
     Graphics g;
@@ -32,6 +32,10 @@ public class GraficarFiguras extends JFrame{
     double l3;
     public FigurasGeometricas[] afg2 = new FigurasGeometricas[3];
     
+    /**
+     * metodo que se encarga de crea el panel
+     * @param afg recibe vector de figuras geometricas 
+     */
     public GraficarFiguras(FigurasGeometricas afg[]){
         afg2 = afg;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,67 +45,15 @@ public class GraficarFiguras extends JFrame{
         setContentPane(contentPane);
         contentPane.setLayout(null);
         setBounds(0,0,800,600);
-        this.setTitle("Graficar");
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setLocationRelativeTo(null);
-        JPanel panelFigura1 = new JPanel();
-        JPanel panelFigura2 = new JPanel();
-        JPanel panelFigura3 = new JPanel();
-        panelFigura1.setBackground(Color.WHITE);
-        panelFigura2.setBackground(Color.WHITE);
-        panelFigura3.setBackground(Color.WHITE);
-        panelFigura1.setBounds(0,0,200,400);
-        panelFigura2.setBounds(200,0,200,400);
-        panelFigura3.setBounds(400,0,200,400);
-        this.setSize(600,400);
-        
-//        this.setTitle("Graficar");
-//        this.setResizable(false);
-//        this.setLayout(null);
-//        this.setLocationRelativeTo(null);
-//        JPanel panelFigura1 = new JPanel();
-//        JPanel panelFigura2 = new JPanel();
-//        JPanel panelFigura3 = new JPanel();
-//        panelFigura1.setBackground(Color.WHITE);
-//        panelFigura2.setBackground(Color.WHITE);
-//        panelFigura3.setBackground(Color.WHITE);
-//        panelFigura1.setBounds(0,0,200,400);
-//        panelFigura2.setBounds(200,0,200,400);
-//        panelFigura3.setBounds(400,0,200,400);
-        //g.drawPolygon(null);
-        for(int i=0;i<afg.length;i++){
-            if(afg[i] instanceof Cuadrado){
-                x4 = ((Cuadrado)afg[i]).getCoordenadax4();
-                y4 = ((Cuadrado)afg[i]).getCoordenaday4();
-                lado1 = (int)((Cuadrado)afg[i]).getLado4();      
-            }else if(afg[i] instanceof Triangulo){
-                x1 = ((Triangulo)afg[i]).getCoordenadax1();
-                x2 = ((Triangulo)afg[i]).getCoordenadax2();
-                x3 = ((Triangulo)afg[i]).getCoordenadax3();
-                y1 = ((Triangulo)afg[i]).getCoordenaday1();
-                y2 = ((Triangulo)afg[i]).getCoordenaday2();
-                y3 = ((Triangulo)afg[i]).getCoordenaday3();
-                lado1 = (int)((Triangulo)afg[i]).getLado1();
-                lado2 = (int)((Triangulo)afg[i]).getLado2();
-                lado3 = (int)((Triangulo)afg[i]).getLado3();
-            }else if(afg[i] instanceof Rectangulo){
-                x4 = ((Rectangulo)afg[i]).getCoordenadax4();
-                y4 = ((Rectangulo)afg[i]).getCoordenaday4();
-                lado1 = (int)((Rectangulo)afg[i]).getLado1();
-                lado2 = (int)((Rectangulo)afg[i]).getLado2();
-            }
-        }
-//        this.add(panelFigura1);
-//        this.add(panelFigura2);
-//        this.add(panelFigura3);
     }
-    
+    /**
+     * metodo de que se encarga de evaluar que trae el vector de figuras geometricas y graficar 
+     * @param g parametro reservado para la libreria Graphis 
+     */
     @Override
     public void paint(Graphics g){
         super.paint(g);
         g.setColor(Color.black);
-        
         for(int i=0;i<afg2.length;i++){
             if(afg2[i] instanceof Cuadrado){
                 x4 = ((Cuadrado)afg2[i]).getCoordenadax4();
@@ -130,7 +82,9 @@ public class GraficarFiguras extends JFrame{
             }
         }
    }
-
+/**
+ * constructor vacio
+ */
     public GraficarFiguras() {
     }
 }

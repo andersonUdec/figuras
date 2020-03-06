@@ -188,7 +188,7 @@ public class Cuadrado extends FigurasGeometricas implements IOperaciones{
      * @return true o false
      */
     public boolean isCuadrado() {
-        return (super.getLado1()!= super.getLado2()&& super.getLado1()!= super.getLado3()&& super.getLado1()!= lado4 && super.getLado2()!= super.getLado1()&& super.getLado2()!= super.getLado3()&& super.getLado2()!= lado4 && super.getLado3()!= super.getLado1() && super.getLado3()!= lado4 && lado4 != super.getLado1()&& lado4 != super.getLado2()&& lado4 != super.getLado3() && super.getLado1() ==0.0 && super.getLado2() == 0.0 && super.getLado3() == 0.0 && lado4 ==0.0);
+        return !(super.getLado1()!= super.getLado2()&& super.getLado1()!= super.getLado3()&& super.getLado1()!= lado4 && super.getLado2()!= super.getLado1()&& super.getLado2()!= super.getLado3()&& super.getLado2()!= lado4 && super.getLado3()!= super.getLado1() && super.getLado3()!= lado4 && lado4 != super.getLado1()&& lado4 != super.getLado2()&& lado4 != super.getLado3() && super.getLado1() ==0.0 && super.getLado2() == 0.0 && super.getLado3() == 0.0 && lado4 ==0.0);
     }
 
 }

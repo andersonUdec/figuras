@@ -6,8 +6,8 @@
 package edu.udec.figurasgeometricas;
 
 /**
- *
- * @author ANDERSON
+ * interfaz con metodos vacios para que sea implementada en los hijos  
+ * @author Anderson suarez y Albert charry
  */
 public interface IOperaciones {
     public void hallarPerimetro();

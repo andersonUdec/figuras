@@ -180,6 +180,6 @@ public class Rectangulo extends FigurasGeometricas implements IOperaciones{
      * @return true o false
      */
     private boolean isRectangulo() {
-        return !(super.getCoordenadax1() == super.getCoordenadax2() && super.getCoordenaday1() == super.getCoordenaday2());
+        return !(super.getLado1() ==0 && super.getLado2() ==0 && super.getLado3() ==0 && lado4 ==0 && super.getLado1() != super.getLado3() && super.getLado2()!= lado4 );
     }
 }
